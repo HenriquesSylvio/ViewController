@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ViewController.Models.StudentModel>
+
+@{
+    ViewData["Title"] = "Students";
+}
+
+<h1>Students</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Techno préférée</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (StudentModel item in Model)
+{
+    <tr>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.Surname
+        </td>
+        <td>
+            @item.Techno
+        </td>
+        <td>
+            <a class="btn btn-primary" asp-action="Index" asp-controller="Home">Modifier</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
